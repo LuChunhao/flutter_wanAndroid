@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_wanandroid/banner/Pair.dart';
+import 'package:flutter_wanandroid/view/widget/banner/Pair.dart';
 
 
 /// Crated by yangxiaowei

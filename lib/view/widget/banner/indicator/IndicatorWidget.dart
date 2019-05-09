@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../banner_view.dart';
-import 'IndicatorUtil.dart';
+import 'package:flutter_wanandroid/view/widget/banner/banner_view.dart';
+import 'package:flutter_wanandroid/view/widget/banner/indicator/IndicatorUtil.dart';
 //Created by yangxiaowei at 2018/06/06
 //indicator view of banner
 class IndicatorWidget extends StatelessWidget {

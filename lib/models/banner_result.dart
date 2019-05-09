@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:flutter_wanandroid/models/bean/banner_bean.dart';
-import 'package:flutter_wanandroid/models/result/base_result.dart';
 part 'banner_result.g.dart';
 
 @JsonSerializable()

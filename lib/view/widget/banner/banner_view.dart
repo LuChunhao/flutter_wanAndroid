@@ -2,8 +2,9 @@ library banner_view;
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_wanandroid/common/util/logger.dart';
 
-import 'indicator/IndicatorWidget.dart';
+import 'package:flutter_wanandroid/view/widget/banner/indicator/IndicatorWidget.dart';
 //indicator container builder
 ///[indicatorWidget] indicator widget, position the indicator widget into container
 typedef Widget IndicatorContainerBuilder(BuildContext context, Widget indicatorWidget);
@@ -76,7 +77,6 @@ class _BannerViewState extends State<BannerView> {
   @override
   void initState() {
     super.initState();
-    _Logger.debug = widget.log ?? true;
 
     this._originBanners = widget.banners;
     this._banners = this._banners..addAll(this._originBanners);
@@ -250,15 +250,15 @@ class _BannerViewState extends State<BannerView> {
       var left = page == .0 ? .0 : page % (page.round());
 
       if(_seriesUserScrollRecordCount == 0) {
-        _Logger.d(TAG, '**********   ^^^^  用户手动滑动开始');
+        LogUtil.d(TAG, '**********   ^^^^  用户手动滑动开始');
         this._cancel(manual: true);
       }
       if(depth == 0) {
-        _Logger.d(TAG, '** countP: $_seriesUserScrollRecordCount  page: $page  , left: $left');
+        LogUtil.d(TAG, '** countP: $_seriesUserScrollRecordCount  page: $page  , left: $left');
 
         if(left == 0) {
           if (_seriesUserScrollRecordCount != 0) {
-            _Logger.d(TAG, '**********   ^^^^  用户手动滑动结束, at edge: ${pm.atEdge}');
+            LogUtil.d(TAG, '**********   ^^^^  用户手动滑动结束, at edge: ${pm.atEdge}');
             setState(() {
               _seriesUserScrollRecordCount = 0;
               _canceledByManual = false;
@@ -277,7 +277,7 @@ class _BannerViewState extends State<BannerView> {
     void _handleOtherScroll(ScrollUpdateNotification notification) {
       ScrollUpdateNotification sn = notification;
       if(widget.cycleRolling && sn.metrics.atEdge) {
-        _Logger.d(TAG, '>>>   had at edge  $_currentIndex');
+        LogUtil.d(TAG, '>>>   had at edge  $_currentIndex');
         if(this._canceledByManual) {
           return;
         }
@@ -317,11 +317,3 @@ class _BannerViewState extends State<BannerView> {
   }
 }
 
-class _Logger {
-  static bool debug = false;
-  static void d(String tag, String msg) {
-    if(debug) {
-      print('$tag - $msg');
-    }
-  }
-}

@@ -33,4 +33,6 @@ class Api {
 
   //搜索热词
   static const String HOTKEY = "hotkey/json";
+
+  static const String token = "";
 }

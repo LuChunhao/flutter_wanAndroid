@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_wanandroid/pages/found_page.dart';
-import 'package:flutter_wanandroid/pages/home_page.dart';
+import 'package:flutter_wanandroid/view/pages/found_page.dart';
+import 'package:flutter_wanandroid/view/pages/home_page.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -54,7 +54,7 @@ class MainPageState extends State<MainPage> {
       ),
       body: Center(
         child: IndexedStack(
-          children: <Widget>[HomePage(), FoundPage(), HomePage(), FoundPage()],
+          children: <Widget>[HomePage(), FoundPage(), FoundPage(), FoundPage()],
           index: _selectedIndex,
         ),
       ),
